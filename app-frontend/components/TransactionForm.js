@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function TransactionForm() {
+function TransactionForm({onAddTransaction}) {
     const [formData, setFormData] = useState({})
 
     function handleChange(e){
@@ -13,12 +13,31 @@ function TransactionForm() {
         })
     }
 
+    function handleSubmit(e){
+        e.preventDefault()
+        fetch("https://infra.devskills.app/api/accounting/transaction",{
+            method:'POST',
+            headers:{
+                'Content-Type': 'application/json'
+            },
+            body:JSON.stringify(formData)
+        })
+        .then(r=>r.json())
+        .then(newTransaction=>{onAddTransaction(newTransaction)
+        }) 
 
+        // clear the formData
+        setFormData({
+            account_id :"",
+            amount: ""
+        })
+    }
+    
 
   return (
     <>
             <form
-
+             onSubmit={handleSubmit}
             >
                     {/* Account ID input */}
                 <div className="mt-5">

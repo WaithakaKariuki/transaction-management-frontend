@@ -17,6 +17,11 @@ function Main() {
        
     },[])
 
+    // add new transaction to existing ones
+    function addTransaction(formData){
+        setTransactions([...transactions, formData])
+    }
+
   return (
     <>
         <main className="mx-auto  max-w-7xl py-4 px-6 lg:py-4 lg:px-8 ">
@@ -37,7 +42,7 @@ function Main() {
                     <div className="overflow-hidden rounded-lg bg-white shadow h-96">
                         <div className="p-4">
                         
-                            <TransactionForm/>
+                            <TransactionForm onAddTransaction = {addTransaction}/>
                         </div>
                     </div>
                     </section>
