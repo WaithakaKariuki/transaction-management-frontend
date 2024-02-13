@@ -48,6 +48,9 @@ export default function TransactionForm({onAddTransaction, onHandleBalance}) {
                     </label>
                     <div className="mt-1">
                     <input
+                        type="text"
+                        minlength="36" 
+                        maxlength="36"
                         required
                         onChange={handleChange}
                         name = "account_id"
