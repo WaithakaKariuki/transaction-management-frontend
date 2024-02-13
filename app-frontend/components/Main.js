@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import TransactionForm from './TransactionForm'
 
 function Main() {
     const [transactions, setTransactions] = useState([])
@@ -35,7 +36,7 @@ function Main() {
                     <div className="overflow-hidden rounded-lg bg-white shadow h-96">
                         <div className="p-4">
                         
-                            form
+                            <TransactionForm/>
                         </div>
                     </div>
                     </section>
