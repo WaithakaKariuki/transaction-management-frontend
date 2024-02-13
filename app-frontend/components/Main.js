@@ -4,6 +4,8 @@ import TransactionHistory from './TransactionHistory'
 
 function Main() {
     const [transactions, setTransactions] = useState([])
+    const [accountBalance, setAccountBalance] = useState(0)
+
 
     useEffect(()=>{ //fetch all transactions
         fetch("https://infra.devskills.app/api/accounting/transactions",{
@@ -16,6 +18,18 @@ function Main() {
         .then(data=>{setTransactions(Object.values(data))})
        
     },[])
+
+    // fetch balance after form submit
+    function handleBalance(account_id){
+        fetch(`https://infra.devskills.app/api/accounting/accounts/${account_id}`,{
+                method:'GET',
+                headers:{
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(r=>r.json())
+            .then(newBalance=>setAccountBalance(newBalance.balance))
+    }
 
     // add new transaction to existing ones
     function addTransaction(formData){
@@ -42,7 +56,7 @@ function Main() {
                     <div className="overflow-hidden rounded-lg bg-white shadow h-96">
                         <div className="p-4">
                         
-                            <TransactionForm onAddTransaction = {addTransaction}/>
+                            <TransactionForm onAddTransaction = {addTransaction}  onHandleBalance={handleBalance}/>
                         </div>
                     </div>
                     </section>

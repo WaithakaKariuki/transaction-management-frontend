@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function TransactionForm({onAddTransaction}) {
+function TransactionForm({onAddTransaction, onHandleBalance}) {
     const [formData, setFormData] = useState({})
 
     function handleChange(e){
@@ -23,7 +23,8 @@ function TransactionForm({onAddTransaction}) {
             body:JSON.stringify(formData)
         })
         .then(r=>r.json())
-        .then(newTransaction=>{onAddTransaction(newTransaction)
+        .then(newTransaction=>{onAddTransaction(newTransaction);
+            onHandleBalance(newTransaction.account_id); //use the new accountId to fetch balance
         }) 
 
         // clear the formData
