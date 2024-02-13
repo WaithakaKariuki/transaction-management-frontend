@@ -2,8 +2,9 @@
   "name": "transaction-management-frontend-level-2",
   "version": "1.0.0",
   "scripts": {
-    "build": "echo build your frontend app here",
-    "start": "echo start your frontend app here",
+    "dev": "cd app-frontend && npm run dev",
+    "build": "cd app-frontend && npm install && npm run build",
+    "start": "cd app-frontend && npm run start",
     "test": "cypress run"
   },
   "devDependencies": {
