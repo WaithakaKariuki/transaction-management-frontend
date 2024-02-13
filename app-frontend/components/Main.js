@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import TransactionForm from './TransactionForm'
+import TransactionHistory from './TransactionHistory'
 
 function Main() {
     const [transactions, setTransactions] = useState([])
@@ -54,7 +55,7 @@ function Main() {
                     </h2>
                     <div className="overflow-hidden rounded-lg bg-white shadow h-96 overflow-y-auto">
                     <div className="p-4">
-                        history
+                        <TransactionHistory transactions={transactions}/>
                         </div>
                     </div>
                     </section>
