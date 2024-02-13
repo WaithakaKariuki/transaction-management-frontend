@@ -74,7 +74,7 @@ function Main() {
                     </h2>
                     <div className="overflow-hidden rounded-lg bg-white shadow h-96 overflow-y-auto">
                     <div className="p-4">
-                        <TransactionHistory transactions={transactions}/>
+                        <TransactionHistory accountBalance= {accountBalance} transactions={transactions}/>
                         </div>
                     </div>
                     </section>

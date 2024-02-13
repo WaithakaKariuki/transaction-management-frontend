@@ -1,6 +1,6 @@
 import React from 'react'
 
-function TransactionHistory({transactions}) {
+function TransactionHistory({transactions, accountBalance}) {
     const reverseTransactions = transactions.slice().reverse() //use reversed array to show transactions from latest
     const firstTransaction = reverseTransactions.slice(0, 1);
     const otherTransactions = reverseTransactions.slice(1, reverseTransactions.length);
@@ -17,6 +17,7 @@ function TransactionHistory({transactions}) {
                     <li key ={transaction.account_id} className="py-4 hover:bg-green-100 border-gray-200 active:bg-green-200  hover:z-10 focus:bg-green hover:shadow-xl">  
                         <div className="ml-3" >
                         <p className="text-base text-gray-900 font-medium text-green" >Transfered {transaction.amount}$ from account {transaction.account_id}</p>
+                        <p className="text-base text-gray-800 font-semibold pt-2" >The account balance is {accountBalance}$</p>
                         </div>
                     </li>
                 </div>
