@@ -13,6 +13,8 @@ function TransactionHistory({transactions, accountBalance}) {
                     data-type="transaction" 
                     data-amount={transaction.amount}  
                     data-account-id={transaction.account_id}
+                    data-balance={accountBalance}
+
                 >
                     <li key ={transaction.account_id} className="py-4 hover:bg-green-100 border-gray-200 active:bg-green-200  hover:z-10 focus:bg-green hover:shadow-xl">  
                         <div className="ml-3" >
