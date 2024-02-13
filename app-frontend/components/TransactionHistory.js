@@ -1,11 +1,13 @@
 import React from 'react'
 
-function TransactionHistory({transactions, accountBalance}) {
+function TransactionHistory({transactions , accountBalance}) {
     const reverseTransactions = transactions.slice().reverse() //use reversed array to show transactions from latest
     const firstTransaction = reverseTransactions.slice(0, 1);
     const otherTransactions = reverseTransactions.slice(1, reverseTransactions.length);
+
   return (
     <>
+
         <ul role="list relative" className="divide-y divide-gray-500">
             {/* display firstTransaction */}
             {firstTransaction.map((transaction) =>(
@@ -14,7 +16,6 @@ function TransactionHistory({transactions, accountBalance}) {
                     data-amount={transaction.amount}  
                     data-account-id={transaction.account_id}
                     data-balance={accountBalance}
-
                 >
                     <li key ={transaction.account_id} className="py-4 hover:bg-green-100 border-gray-200 active:bg-green-200  hover:z-10 focus:bg-green hover:shadow-xl">  
                         <div className="ml-3" >
