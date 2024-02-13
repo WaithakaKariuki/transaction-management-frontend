@@ -7,7 +7,6 @@ function TransactionHistory({transactions , accountBalance}) {
 
   return (
     <>
-
         <ul role="list relative" className="divide-y divide-gray-500">
             {/* display firstTransaction */}
             {firstTransaction.map((transaction) =>(
