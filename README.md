@@ -8,6 +8,10 @@ You will be required to use the React Framework for this assessment.
 
 The transaction list must display the withdrawn or deposited amount for each transaction, along with the affected account ID. It must also render the current balance for the last submitted transaction.
 
+## SCREENSHOT
+
+![](app-frontend/public/Screenshot.png)
+
 Here's the UI mockup with hints:
 
 ![Transaction Management App Frontend](https://user-images.githubusercontent.com/450319/139797772-4e4b2744-447c-411f-9b04-7028ba5e89a1.png)
