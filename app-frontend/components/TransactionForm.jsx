@@ -14,21 +14,23 @@ export default function TransactionForm({onAddTransaction, onHandleBalance}) {
         })
     }
 
-    function handleSubmit(e){
+    async function handleSubmit(e){
         e.preventDefault()
-        fetch("https://infra.devskills.app/api/accounting/transaction",{
+        const response = await fetch("https://infra.devskills.app/api/accounting/transaction",{
             method:'POST',
             headers:{
                 'Content-Type': 'application/json'
             },
             body:JSON.stringify(formData)
         })
-        .then(r=>r.json())
-        .then(newTransaction=>{onAddTransaction(newTransaction);
-            onHandleBalance(newTransaction.account_id); //use the new accountId to fetch balance
-            setErrors(newTransaction.errors) 
-        }) 
-
+        const data = await response.json()
+        if(response.ok){
+            onAddTransaction(data);
+            onHandleBalance(data.account_id) //use the new accountId to fetch balance
+        }else{
+            setErrors(data.errors) 
+        }
+        
         // clear the formData
         setFormData({
             account_id :"",
