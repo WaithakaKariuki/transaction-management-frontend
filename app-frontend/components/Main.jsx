@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import TransactionForm from './TransactionForm'
 import TransactionHistory from './TransactionHistory'
+import LeftGrid from './LeftGrid'
+import RightGrid from './RightGrid'
 
 function Main() {
     const [transactions, setTransactions] = useState([])
@@ -16,10 +18,10 @@ function Main() {
         .then(r=>r.json())
         .then(data=>{setTransactions(Object.values(data))})
        
-    },[])
+    },[transactions])
 
     // fetch balance after form submit
-    function handleBalance(account_id){
+    const handleBalance = useCallback((account_id)=>{
         fetch(`https://infra.devskills.app/api/accounting/accounts/${account_id}`,{
                 method:'GET',
                 headers:{
@@ -28,12 +30,12 @@ function Main() {
             })
         .then(r=>r.json())
         .then(newBalance=>setAccountBalance(newBalance.balance))
-    }
+    },[])
 
     // add new transaction to existing ones
-    function addTransaction(formData){
-        setTransactions([...transactions, formData])
-    }
+    const addTransaction = useMemo((formData)=>{
+        setTransactions((transactions)=>[...transactions, formData])
+    },[])
 
   return (
     <>
@@ -43,40 +45,13 @@ function Main() {
                 {/* Main 3 column grid */}
                 <div className="grid grid-cols-1 items-start gap-1 lg:grid-cols-3 lg:gap-1">  
                 {/* Left column */}
-                <div className="grid grid-cols-1 gap-4 shadow-lg border-dotted rounded-md border border-lime-800">
-                    <section aria-labelledby="section-2-title">
-                        <h2 className="sr-only" id="section-2-title">
-                            Submit new transaction
-                        </h2>
-                        <h2 className="flex justify-start text-xl font-bold text-gray-900 bg-gray-200 px-6 py-2">
-                            Submit new transaction
-                        </h2>
-                        <div className="overflow-hidden rounded-lg bg-white shadow h-96">
-                            <div className="p-4">  
-                                {/* display transactions form*/}          
-                                <TransactionForm onAddTransaction = {addTransaction} onHandleBalance={handleBalance} />
-                            </div>
-                        </div>
-                    </section>
-                </div>
-                
+                <LeftGrid>
+                    <TransactionForm onAddTransaction = {addTransaction} onHandleBalance={handleBalance} />
+                </LeftGrid>              
                 {/* right column */}
-                <div className="grid grid-cols-1 gap-4 lg:col-span-2 shadow-lg border-dotted rounded-md border border-lime-800">
-                    <section aria-labelledby="section-1-title">
-                    <h2 className="sr-only" id="section-1-title">
-                    Transaction History
-                    </h2>
-                    <h2 className="flex justify-start font-bold text-xl text-gray-900 bg-gray-200 px-6 py-2">
-                    Transaction History
-                    </h2>
-                    <div className="overflow-hidden rounded-lg bg-white shadow h-96 overflow-y-auto">
-                        <div className="p-4">
-                            {/* display transactions history*/}
-                            <TransactionHistory accountBalance= {accountBalance} transactions={transactions}/>
-                        </div>
-                    </div>
-                    </section>
-                </div>
+                <RightGrid>
+                    <TransactionHistory accountBalance= {accountBalance} transactions={transactions}/>
+                </RightGrid>
                 </div>
             </div>
         </main>
