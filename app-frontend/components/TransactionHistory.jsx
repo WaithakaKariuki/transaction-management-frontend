@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { memo } from 'react'
 
-function TransactionHistory({transactions , accountBalance}) {
+const TransactionHistory = memo(function TransactionHistory({transactions , accountBalance}) {
     const reverseTransactions = transactions.slice().reverse() //use reversed array to show transactions from latest
     const firstTransaction = reverseTransactions.slice(0, 1);
     const otherTransactions = reverseTransactions.slice(1, reverseTransactions.length);
@@ -39,6 +39,6 @@ function TransactionHistory({transactions , accountBalance}) {
         </ul>
     </>
   )
-}
+})
 
 export default TransactionHistory
