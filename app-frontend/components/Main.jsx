@@ -18,7 +18,7 @@ function Main() {
         .then(r=>r.json())
         .then(data=>{setTransactions(Object.values(data))})
        
-    },[transactions])
+    },[])
 
     // fetch balance after form submit
     const handleBalance = useCallback((account_id)=>{
@@ -33,9 +33,12 @@ function Main() {
     },[])
 
     // add new transaction to existing ones
-    const addTransaction = useMemo((formData)=>{
+    const addTransaction = useMemo(()=>
+    (formData)=>{
         setTransactions((transactions)=>[...transactions, formData])
     },[])
+
+    console.log(transactions)
 
   return (
     <>
