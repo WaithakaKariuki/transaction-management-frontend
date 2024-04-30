@@ -38,8 +38,6 @@ function Main() {
         setTransactions((transactions)=>[...transactions, formData])
     },[])
 
-    console.log(transactions)
-
   return (
     <>
         <main className="mx-auto  max-w-7xl py-4 px-6 lg:py-4 lg:px-8 ">
