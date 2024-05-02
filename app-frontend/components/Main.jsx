@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react'
+import React, { Suspense, useCallback, useEffect, useMemo, useState } from 'react'
 import TransactionForm from './TransactionForm'
 import TransactionHistory from './TransactionHistory'
 import LeftGrid from './LeftGrid'
@@ -51,7 +51,9 @@ function Main() {
                 </LeftGrid>              
                 {/* right column */}
                 <RightGrid>
-                    <TransactionHistory accountBalance= {accountBalance} transactions={transactions}/>
+                    <Suspense fallback={<Loading/>}>
+                        <TransactionHistory accountBalance= {accountBalance} transactions={transactions}/>
+                    </Suspense>
                 </RightGrid>
                 </div>
             </div>
