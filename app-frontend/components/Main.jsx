@@ -1,8 +1,10 @@
-import React, { Suspense, useCallback, useEffect, useMemo, useState } from 'react'
+import React, { Suspense, lazy, useCallback, useEffect, useMemo, useState } from 'react'
 import TransactionForm from './TransactionForm'
-import TransactionHistory from './TransactionHistory'
 import LeftGrid from './LeftGrid'
 import RightGrid from './RightGrid'
+import Loading from './Loading'
+
+const TransactionHistory = lazy(()=>import('./TransactionHistory.jsx'))
 
 function Main() {
     const [transactions, setTransactions] = useState([])
@@ -51,7 +53,7 @@ function Main() {
                 </LeftGrid>              
                 {/* right column */}
                 <RightGrid>
-                    <Suspense fallback={<Loading/>}>
+                    <Suspense fallback={<Loading />}>
                         <TransactionHistory accountBalance= {accountBalance} transactions={transactions}/>
                     </Suspense>
                 </RightGrid>
@@ -63,3 +65,4 @@ function Main() {
 }
 
 export default Main
+
