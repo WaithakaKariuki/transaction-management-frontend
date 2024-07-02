@@ -1,4 +1,4 @@
-# Transaction Management Frontend - LIII
+# Transaction Management Frontend 
 
 Your task is to build a frontend app that allows the recording of financial transactions and viewing the transaction history by connecting to a hosted Transaction Management API.
 
@@ -8,7 +8,7 @@ You will be required to use the React Framework for this assessment.
 
 The transaction list must display the withdrawn or deposited amount for each transaction, along with the affected account ID. It must also render the current balance for the last submitted transaction.
 
-## SCREENSHOT
+### SCREENSHOT
 
 ![](app-frontend/public/Screenshot.png)
 
