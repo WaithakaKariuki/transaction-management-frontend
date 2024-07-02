@@ -1,12 +1,12 @@
 # Transaction Management Frontend 
 
-Your task is to build a frontend app that allows the recording of financial transactions and viewing the transaction history by connecting to a hosted Transaction Management API.
+A frontend app that allows the recording of financial transactions and viewing the transaction history by connecting to a hosted Transaction Management API.
 
-You will be required to use the React Framework for this assessment.
+Built using the React Framework.
 
 ### Frontend requirements
 
-The transaction list must display the withdrawn or deposited amount for each transaction, along with the affected account ID. It must also render the current balance for the last submitted transaction.
+The transaction list displays the withdrawn or deposited amount for each transaction, along with the affected account ID. It also renders the current balance for the last submitted transaction.
 
 ### SCREENSHOT
 
@@ -86,20 +86,14 @@ GET https://infra.devskills.app/api/accounting/accounts/0afd02d3-6c59-46e7-b7bc-
 
 ## Additional requirements
 
-- Do your best to make the [provided E2E tests](cypress/e2e/test.cy.js) pass.
-- Implement client-side validation of the form data.
-- Implement error handling for the cases when the API cannot be reached or returns a server error.
-- Unit test one module of choice. There is no need to test the whole app, as we only want to understand what you take into consideration when writing unit tests.
-- Avoid duplication and extract re-usable modules where it makes sense. We want to see your approach to creating a codebase that is easy to maintain.
+- Tests [provided E2E tests](cypress/e2e/test.cy.js) pass.
+- Implemented client-side validation of the form data.
+- Implemented error handling for the cases when the API cannot be reached or returns a server error.
+- Avoids duplication and extract re-usable modules where it makes sense. Creates a codebase that is easy to maintain.
 
 ## Getting started
 
 <details>
-  <summary>If you run into a problem</summary>
-  
-  Navigate to [our community on GitHub](https://github.com/orgs/DevSkillsHQ/discussions/categories/help) to get assistance.
-
-</details>
 
 <details>
   <summary>Import a starter project</summary>
@@ -156,10 +150,4 @@ GET https://infra.devskills.app/api/accounting/accounts/0afd02d3-6c59-46e7-b7bc-
 
 ## Time estimate
 
-Between 2 - 3 hours + the time to set up the project/environment (we suggest importing one of the provided project starters to save time).
-
-However, there is no countdown. The estimate is for you to plan your time. Please note however, how long you take to complete the assessment plays a role in your evaulation.
-
----
-
-Authored by [Alva Labs](https://www.alvalabs.io/).
+Between 2 - 3 hours + the time to set up the project/environment.
