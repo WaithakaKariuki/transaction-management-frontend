@@ -139,15 +139,3 @@ GET https://infra.devskills.app/api/accounting/accounts/0afd02d3-6c59-46e7-b7bc-
   ```
 
 </details>
-
-## Submitting your solution for review
-
-1. Create a new `implementation` branch on this repository and push your code there.
-2. Create a new pull request from `implementation` **without merging it**.
-3. Document the tech decisions you've made by creating a new review on your PR ([see how](https://www.loom.com/share/94ae305e7fbf45d592099ac9f40d4274)).
-4. Indicate in your PR if your tests are running or not (or how many are running)
-5. Await further instructions from the hiring team.
-
-## Time estimate
-
-Between 2 - 3 hours + the time to set up the project/environment.
