@@ -19,7 +19,7 @@ function Main() {
         })
         .then(r=>r.json())
         .then(data=>{setTransactions(Object.values(data))})
-       
+        .catch(e => console.error(e))
     },[])
 
     // fetch balance after form submit
@@ -32,6 +32,7 @@ function Main() {
             })
         .then(r=>r.json())
         .then(newBalance=>setAccountBalance(newBalance.balance))
+        .catch(e => console.error(e))
     },[])
 
     // add new transaction to existing ones
